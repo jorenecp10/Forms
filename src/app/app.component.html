@@ -2,39 +2,39 @@
 <h1>{{title}}</h1>
 <div class="row p-2">
 <div class="container p-1 marco col-5">
-  <form>
+  <form (ngSubmit)= "onSubmit()" #miForm="ngForm">
   <div class="form-group">
   <label for="codigo">Codigo</label>
   <input type="text" class="form-control" maxlength="6" name="codigo" [(ngModel)]="codigo" #cod (change)="mostrarVar()">
   </div>
   <div class="form-group">
     <label for="nombre">Nombre</label>
-    <input name="nombre"  type="text" class="form-control" placeholder="Por favor introduzca su nombre" name="nombre" [(ngModel)]="nombre">
+    <input (change)="mostrarVar()" name="nombre"  type="text" class="form-control" placeholder="Por favor introduzca su nombre" name="nombre" [(ngModel)]="nombre">
   </div>
   <div class="form-group">
     <label for="edad">Edad</label>
-    <input  type="number" class="form-control" value="20" max="65" min="15" name="edad" [(ngModel)]="edad">
+    <input  (change)="mostrarVar()" type="number" class="form-control" value="20" max="65" min="15" name="edad" [(ngModel)]="edad">
   </div>
   <div class="form-group">
     <label for="opcion">Opcion</label>
-    <select  class="form-control" >
-      <option value="" name="opcion" [(ngModel)]="opcion">Uno</option>
-      <option value="" name="opcion" [(ngModel)]="opcion">Dos</option>
-      <option value="" name="opcion" [(ngModel)]="opcion">Tres</option>
+    <select (change)="mostrarVar()"  class="form-control" name="opcion" [(ngModel)]="opcion">
+      <option value="1">Uno</option>
+      <option value="2">Dos</option>
+      <option value="3">Tres</option>
      </select>
   </div>
   <label for="Sexo">Sexo</label><br>
   <div class="form-group">
-    <label for=""><input class="mx-1" type="radio" checked="true"> Hombre</label>
-    <label for=""><input class="mx-1" type="radio">Mujer</label>
+    <label for=""><input (change)="mostrarVar()"  class="mx-1" type="radio" checked="true" [(ngModel)]="sexo" name="sexo" value="hombre" > Hombre</label>
+    <label for=""><input (change)="mostrarVar()"   class="mx-1" type="radio" [(ngModel)]="sexo" name="sexo" value="mujer">Mujer</label>
   </div>
   <div class="form-group">
     <label for="comentarios">Comentarios</label>
     <div class="textarea-btn-holder form-group form-group-replace">
-        <textarea  class="form-control text-comment"></textarea>
+        <textarea name="comentario" (change)="mostrarVar()"  [(ngModel)]="comentarios" class="form-control text-comment"></textarea>
     </div>
     <div class="form-group">
-       <label for=""><input  class="mx-1" type="checkbox" checked="true">Activar</label>
+       <label for=""><input (change)="mostrarVar()"  class="mx-1" type="checkbox" checked="true" name="activar" [(ngModel)]="activar">Activar</label>
     </div>
 
   </div>
@@ -51,5 +51,9 @@
   <h3>Nombre: {{nombre}}</h3>
   <h1>Edad:{{edad}}</h1>
   <h2>Opcion{{opcion}}</h2>
+  <h1>Sexo:{{sexo}}</h1>
+  <h1>Comentario:{{comentarios}}</h1>
+  <h3>Activado:{{activar}}</h3><br>
+  miForm {{miForm.value | json}}
 </div>
 </div>

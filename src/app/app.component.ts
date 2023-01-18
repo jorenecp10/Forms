@@ -9,18 +9,23 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = '061 formIntro';
 
- codigo:any;
+ codigo:number=0;
 nombre:string="";
-edad:any;
+edad:number=0;
 opcion:any;
-//  sexo:any;
-//  comentarios:any;
-//  activar:any;
+sexo:string="hombre";
+comentarios:string="";
+activar:boolean=true;
 
 
  mostrarVar( ){
 
-  console.log("codigo (" + this.codigo +")");
+  console.log("codigo (" + this.codigo +")" + "nombre:" + this.nombre + " edad:" +this.edad + "Opcion:" + this.opcion + "comentarios:"+this.comentarios + "sexo:"+ this.sexo + "Activar:" + this.activar);
 
  }
+
+   onSubmit(){
+    console.log("hola")
+   }
+
 }
